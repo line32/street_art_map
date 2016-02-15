@@ -1,0 +1,22 @@
+html {
+	background-color: #000000;
+}
+
+main {
+	width: 600px;
+	margin: 10px auto;
+	background-color: #ffffff;
+}
+
+.logo {
+	display: block;
+	margin: 0 auto;
+	padding: 5px 0;
+}
+
+@media (max-width: 650px) {
+#container {
+	max-width:100%;
+	margin: 10px 0;	
+}
+}
