@@ -1,0 +1,24 @@
+
+.modalBox {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #A9A9A9;
+	z-index: 99999;
+	opacity:0;
+	pointer-events: none;
+}
+.modalBox:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modal-contents {
+	width: 30%;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	background: #ffffff;
+}
+	
