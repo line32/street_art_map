@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seattle Street Art Map</title>
-<link rel="stylesheet" href="css/base.css"  />
-<link rel="stylesheet" href="css/layout.css"  />
-<link rel="stylesheet" href="css/modules.css"  />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Seattle Street Art Map</title>
+	<link rel="stylesheet" href="css/base.css"  />
+	<link rel="stylesheet" href="css/layout.css"  />
+	<link rel="stylesheet" href="css/modules.css"  />
 </head>
 
 <body>
@@ -25,6 +25,20 @@
             <figure><img src="http://i.stack.imgur.com/ijSS5.png" height="18" /></figure>
         </section>
     </main>
+		<script type="text/javascript">
+		var map;
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: 47.6225, lng: -122.3520},
+				zoom: 13
+			});
+		}
+		</script>
+
+
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPzcvwMD8IHfXKVX9c0XmXx08x1wDv4to&callback=initMap">
+		</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 </body>
