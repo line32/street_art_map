@@ -1,11 +1,21 @@
-html {
+html, body {
 	background-color: #000000;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 main {
 	width: 600px;
 	margin: 10px auto;
 	background-color: #ffffff;
+}
+section {
+	padding: 20px;
+}
+#map {
+	margin: auto;
+	padding: 200px 0px 200px 0px;
 }
 
 .logo {
@@ -28,6 +38,7 @@ main {
 nav {
 	text-align:right;
 	padding-right:22px;
+	padding-bottom: 20px;
 }
 nav a {
 	text-decoration:none;
@@ -35,16 +46,13 @@ nav a {
 	vertical-align:middle;
 }
 nav img {
-	vertical-align:middle;	
-}
-section {
-	padding: 20px;
+	vertical-align:middle;
 }
 
 @media (max-width: 550px) {
 main {
 	width:100%;
-	margin: 10px 0;	
+	margin: 10px 0;
 }
 .logo {
 	display: block;
