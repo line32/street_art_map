@@ -28,15 +28,15 @@
 						<span class="close"><a onclick="hideModal();"><img src="http://adventureahead.kindercare.com/images/shut.png" id="close"/></a></span>
 						<h2>Upload A Mural</h2>
 					<form class='form'>
-						<h5>Address:</h5>
-					<input class="form-input" type="text" name="address" placeholder="Address" ><span id='address'></span><br>
-					<h5>Description:</h5>
-					<input class="form-input" type="text" name="description" placeholder="Description"><span id='description'></span><br>
-					<h5>Artist:</h5>
-					<input class="form-input" type="text" name="artist" value="anonymous"> <span id='artist'></span> <br>
-					<h5>Photographer:</h5>
-					<input class="form-input" type="text" name="photographer" value="anonymous"><span id='mural'></span><br>
-					<h5>Select Street Art Type:</h5><select class="form-input" name="type">
+						<h5>Address:</h5><span id='address'></span>
+					<input class="form-input" type="text" name="address" placeholder="Address" ><br>
+					<h5>Description:</h5><span id='description'></span>
+					<input class="form-input" type="text" name="description" placeholder="Description"><br>
+					<h5>Artist:</h5><span id='artist'></span>
+					<input class="form-input" type="text" name="artist" value="anonymous"><br>
+					<h5>Photographer:</h5><span id='mural'></span>
+					<input class="form-input" type="text" name="photographer" value="anonymous"><br>
+					<h5>Select Street Art Type:</h5><span id='select-one'></span><select class="form-input" name="type">
 						<option value="Select One">Select One</option>
 						<option value="Tag">Tag</option>
 						<option value="Mural">Mural</option>
@@ -44,7 +44,7 @@
 						<option value="Stickers">Stickers</option>
 						<option value="Stencil">Stencil</option>
 						<option value="Yarn Bomb">Yarn Bomb</option>
-					</select><span id='select-one'></span><br>
+					</select><br>
 					<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
 					<button class="submit-form" onclick="validatedForm();" type="button" name="button">Submit</button>
 				</form>

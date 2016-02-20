@@ -53,7 +53,7 @@ var removeSpecialCharacters = "";
  function validType(){
 	if ($('.form-input[name=type]').val() == "Select One") {
 	 console.log('select one');
-	 $('#select-one').html('Please select a type)')
+	 $('#select-one').html('Please select a type')
  }
  else{
 	 console.log('good type');
