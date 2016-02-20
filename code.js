@@ -8,16 +8,6 @@ function hideModal(){
 }
 var valid = 0;
 var removeSpecialCharacters = "";
-function validUser(){
-	if($('input[name=user]').val() == ""){
-		console.log('user');
-		$('#user').html('Please enter a user name');
-	}
-	else {
-		console.log('good user');
-		valid++;
-	}
-}
  function validAddress(){
 	 var addressEntered = $('input[name=address]').val();
 	 if (addressEntered == "") {
@@ -40,23 +30,44 @@ function validUser(){
  	valid++
  }
  }
- function validMural(){
-	 if ($('input[name=mural]').val() == "") {
+ function validArtist(){
+ 	if($('input[name=artist]').val() == ""){
+ 		console.log('artist');
+ 		$('#artist').html('Please enter an artist name');
+ 	}
+ 	else {
+ 		console.log('good artist');
+ 		valid++;
+ 	}
+ }
+ function validPhotographer(){
+	 if ($('input[name=photographer]').val() == "") {
 		console.log('mural');
-		$('#mural').html('Please enter a mural name')
+		$('#mural').html('Please enter a photographer name')
 	}
 	else{
-		console.log('good mural');
+		console.log('good photographer');
 		valid++;
 	}
  }
+ function validType(){
+	if ($('.form-input[name=type]').val() == "Select One") {
+	 console.log('select one');
+	 $('#select-one').html('Please select a type)')
+ }
+ else{
+	 console.log('good type');
+	 valid++;
+ }
+ }
 function validatedForm(){
-		validUser();
 		validAddress();
 		validDescription();
-		validMural();
+		validArtist();
+		validPhotographer();
+		validType();
 		console.log(valid);
-		if(valid == 4){
+		if(valid == 5){
 			hideModal();
 		}
 		valid = 0;
