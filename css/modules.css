@@ -44,13 +44,12 @@
 .modal-content{
 	position: relative;
 	background-color: #fefefe;
-	opacity: 1;
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
 	width: 40%;
-	heigh:100%;
-	margin: 10% auto;
+	height:100%;
+	margin-top: 60px;
 }
 h2{
 	display: block;

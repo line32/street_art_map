@@ -25,13 +25,14 @@
         </section>
 				<div id="modal" class="modal-hide">
 					<div class="modal-content">
-						<span class="close"><a onclick="closeForm"><img src="http://adventureahead.kindercare.com/images/shut.png" id="close"/></a></span>
+						<span class="close"><a onclick="hideModal();"><img src="http://adventureahead.kindercare.com/images/shut.png" id="close"/></a></span>
 						<h2>Upload A Mural</h2>
 					<form class='form'>
 					<input class="test-input" type="text" name="user" placeholder="User Name"> <span id='user'></span> <br>
 					<input class="test-input" type="text" name="address" placeholder="Address" ><span id='address'></span><br>
 					<input class="test-input" type="text" name="description" placeholder="Description"><span id='description'></span><br>
 					<input class="test-input" type="text" name="mural" placeholder="Mural Name"><span id='mural'></span><br>
+					<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
 					<button class="submit-form" onclick="validatedForm();" type="button" name="button">Submit</button>
 				</form>
 					</div>
