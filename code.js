@@ -61,3 +61,8 @@ function validatedForm(){
 		}
 		valid = 0;
 }
+
+function closeForm(){
+  $('#modal').addClass('modal-hide');
+	$('#modal').removeClass('modal-show');
+}
