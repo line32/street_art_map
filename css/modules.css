@@ -42,11 +42,9 @@
 }
 
 .modal-content{
-	position: relative;
 	background-color: #fefefe;
 	margin: auto;
 	padding: 20px;
-	border: 1px solid #888;
 	width: 40%;
 	height:100%;
 	margin-top: 60px;
