@@ -16,6 +16,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(express.static('.'));
+
 app.get('/art', function(req, res) {
   models.Art.findAll().then(function(art) {
     res.json(art)
