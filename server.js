@@ -1,12 +1,12 @@
-var express = require('express')
-var app = express()
-var config = require('./config')
-console.log(config)
-var DB = config.DB
-var PORT = config.PORT
-var models = require('./models')
+var express = require('express');
+var app = express();
+var config = require('./config') || null;
+console.log(config);
+var DB = process.env.DB || config.DB;
+var PORT = process.env.PORT || config.PORT;
+var models = require('./models');
 
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
