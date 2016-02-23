@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 //var config = require('./config') || null;
-console.log(config);
+//console.log(config);
 var DB = process.env.DB || config.DB;
 var PORT = process.env.PORT || config.PORT;
 var models = require('./models');
