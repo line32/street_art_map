@@ -83,13 +83,13 @@ function validatedForm(){
 		console.log(valid);
 		if(valid == 5){
 			hideModal();
+			$('input[name=address]').val('');
+			$('input[name=description]').val('');
+			$('input[name=artist]').val('anonymous');
+			$('input[name=photographer]').val('anonymous');
+			$('.form-input[name=type]').val("Select One");
 		}
 		valid = 0;
-		$('input[name=address]').val('');
-		$('input[name=description]').val('');
-		$('input[name=artist]').val('anonymous');
-		$('input[name=photographer]').val('anonymous');
-		$('.form-input[name=type]').val("Select One");
 }
 submitForm.addEventListener("click", validatedForm)
 // function Art(address, lat, long, description, artist, photographer, type, image){
