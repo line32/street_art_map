@@ -1,13 +1,16 @@
 var closeListener = document.getElementById('close');
 var openModal = document.getElementById('open');
 function modalOpen(){
+	$('#open').hide();
+	$('#close').show();
 	$('#modal').removeClass('modal-hide');
 	$('#modal').addClass('modal-show');
 }
 openModal.addEventListener("click", modalOpen);
 
 function hideModal(){
-	console.log('what what');
+	$('#open').show();
+	$('#close').hide();
 	$('#modal').addClass('modal-hide');
 	$('#modal').removeClass('modal-show')
 }
