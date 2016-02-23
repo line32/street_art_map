@@ -1,5 +1,8 @@
+//create the listeners for opening and closing the modal
 var closeListener = document.getElementById('close');
 var openModal = document.getElementById('open');
+var submitForm = document.getElementById('submit-form');
+//whenever the modal window opens, the form input values are reset
 function modalOpen(){
 	$('#open').hide();
 	$('#close').show();
@@ -21,6 +24,7 @@ function hideModal(){
 }
 closeListener.addEventListener("click", hideModal);
 
+//functions that will validate each form inside of the form
 var valid = 0;
 var removeSpecialCharacters = "";
  function validAddress(){
@@ -33,6 +37,7 @@ var removeSpecialCharacters = "";
 		$('#address').html('')
 		console.log('good address');
 		removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+		//the input value of address is free of any special characters
 		$('input[name=address]').val(removeSpecialCharacters);
 		valid++;
 	}
@@ -82,7 +87,7 @@ var removeSpecialCharacters = "";
 	 valid++;
  }
  }
- var submitForm = document.getElementById('submit-form');
+//form validation is called
 function validatedForm(){
 		validAddress();
 		validDescription();
@@ -95,7 +100,7 @@ function validatedForm(){
 		}
 		valid = 0;
 }
-submitForm.addEventListener("click", validatedForm)
+submitForm.addEventListener("click", validatedForm);
 // function Art(address, lat, long, description, artist, photographer, type, image){
 // 	this.address = address;
 // 	this.lat = lat;
