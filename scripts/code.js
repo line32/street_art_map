@@ -94,28 +94,55 @@ function validatedForm(){
 		}
 		valid = 0;
 }
-submitForm.addEventListener("click", validatedForm)
-// function Art(address, lat, long, description, artist, photographer, type, image){
-// 	this.address = address;
-// 	this.lat = lat;
-// 	this.long = long;
-// 	this.description = description;
-// 	this.artist = artist;
-// 	this.photographer = photographer;
-// 	this.type = type;
-// 	this.image = image;
-// }
-//  function createNewObject(){
-// 	var add = $('input[name=address]').val();
-// 	//do geocoding here
-// 	var descrip = $('input[name=description]').val();
-// 	var artist = $('input[name=artist]').val();
-// 	var photo = $('input[name=photographer]').val();
-// 	var type = $('input[name=type]').val();
-//
-// 	//S3 here
-// 	var art = new Art(add, [lat, long] descrip, artist, photo, type, [S3]);
-// 	//move AJAX post here
-// }
+submitForm.addEventListener("click", validatedForm); //change this, if it validates, geocode and send to S3
+
+function Art(address, lat, long, description, artist, photographer, type, image){
+	this.address = address;
+	this.lat = lat;
+	this.long = long;
+	this.description = description;
+	this.artist = artist;
+	this.photographer = photographer;
+	this.type = type;
+	this.image = image;
+}
+ function createNewObject(){
+	var add = $('input[name=address]').val();
+	//do geocoding here
+	var descrip = $('input[name=description]').val();
+	var artist = $('input[name=artist]').val();
+	var photo = $('input[name=photographer]').val();
+	var type = $('input[name=type]').val();
+
+	//S3 here
+	var art = new Art(add, descrip, artist, photo, type);
+	//move AJAX post here
+}
 //address, description, artist, photographer, type
 //add a callback to show that validation was successfull
+// var art = {
+// 	address: '1721 Martin Luther King Jr Way S, Seattle, WA',
+//     lat: 47.587682,
+// 	long: 122.298429,
+// 	description: 'shitbarf tag on bus stop',
+// 	artist: 'shitbarf the ultimate',
+// 	photographer: 'Anon2',
+// 	type: 'tag',
+// 	image: 'http://i.stack.imgur.com/ijSS5.png'
+// };
+console.log(art);
+var stringArt = JSON.stringify(art);
+console.log('test'+stringArt)
+//
+//
+//
+// $.post('/art', {address: '1721 Martin Luther King Jr Way S, Seattle, WA',lat: 47.587682,long: 122.298429,description: 'shitbarf tag on bus stop2',artist: 'shitbarf the ultimate',photographer: 'Anon2',type: 'tag',image: 'http://i.stack.imgur.com/ijSS5.png'}, function(data) {
+//   console.log('data from post');
+//   console.log(data);
+// }, 'json');
+//
+//
+//
+// $.getJSON('/art', function( data ) {
+// 	console.log(data);
+// });
