@@ -5,6 +5,11 @@ function modalOpen(){
 	$('#close').show();
 	$('#modal').removeClass('modal-hide');
 	$('#modal').addClass('modal-show');
+	$('input[name=address]').val('');
+	$('input[name=description]').val('');
+	$('input[name=artist]').val('anonymous');
+	$('input[name=photographer]').val('anonymous');
+	$('.form-input[name=type]').val("Select One");
 }
 openModal.addEventListener("click", modalOpen);
 
@@ -28,6 +33,7 @@ var removeSpecialCharacters = "";
 		$('#address').html('')
 		console.log('good address');
 		removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+		$('input[name=address]').val(removeSpecialCharacters);
 		valid++;
 	}
  }
@@ -86,11 +92,6 @@ function validatedForm(){
 		console.log(valid);
 		if(valid == 5){
 			hideModal();
-			$('input[name=address]').val('');
-			$('input[name=description]').val('');
-			$('input[name=artist]').val('anonymous');
-			$('input[name=photographer]').val('anonymous');
-			$('.form-input[name=type]').val("Select One");
 		}
 		valid = 0;
 }
