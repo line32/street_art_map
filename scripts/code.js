@@ -146,9 +146,7 @@ submitForm.addEventListener('click', function() {
 // 	type: 'tag',
 // 	image: 'http://i.stack.imgur.com/ijSS5.png'
 // };
-console.log(art);
-var stringArt = JSON.stringify(art);
-console.log('test'+stringArt);
+
 //
 //
 //
