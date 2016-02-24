@@ -83,6 +83,7 @@ function validatedForm() {
   validArtist();
   validPhotographer();
   validType();
+
   console.log(valid);
   if(valid == 5) {
     hideModal();
@@ -91,33 +92,48 @@ function validatedForm() {
     $('input[name=artist]').val('anonymous');
     $('input[name=photographer]').val('anonymous');
     $('.form-input[name=type]').val('Select One');
+
   }
   valid = 0;
 }
-submitForm.addEventListener('click', validatedForm); //change this, if it validates, geocode and send to S3
+//submitForm.addEventListener('click', validatedForm); //change this, if it validates, geocode and send to S3
+submitForm.addEventListener('click', function() {
 
-function Art(address, lat, long, description, artist, photographer, type, image) {
-  this.address = address;
-  this.lat = lat;
-  this.long = long;
-  this.description = description;
-  this.artist = artist;
-  this.photographer = photographer;
-  this.type = type;
-  this.image = image;
-}
-function createNewObject() {
-  var add = $('input[name=address]').val();
-	//do geocoding here
-  var descrip = $('input[name=description]').val();
-  var artist = $('input[name=artist]').val();
-  var photo = $('input[name=photographer]').val();
-  var type = $('input[name=type]').val();
+  // grab the user inputs and add them to the data object
+  var data = {};
+  $('form').serializeArray().map(function(x){data[x.name] = x.value;});
+  console.log(data);
 
-	//S3 here
-  var art = new Art(add, descrip, artist, photo, type);
-	//move AJAX post here
-}
+  validatedForm();
+  console.log('the form is validated by fred function');
+
+
+
+
+
+});
+// function Art(address, lat, long, description, artist, photographer, type, image) {
+//   this.address = address;
+//   this.lat = lat;
+//   this.long = long;
+//   this.description = description;
+//   this.artist = artist;
+//   this.photographer = photographer;
+//   this.type = type;
+//   this.image = image;
+// }
+// function createNewObject() {
+//   var add = $('input[name=address]').val();
+// 	//do geocoding here
+//   var descrip = $('input[name=description]').val();
+//   var artist = $('input[name=artist]').val();
+//   var photo = $('input[name=photographer]').val();
+//   var type = $('input[name=type]').val();
+//
+// 	//S3 here
+//   var art = new Art(add, descrip, artist, photo, type);
+// 	//move AJAX post here
+// }
 //address, description, artist, photographer, type
 //add a callback to show that validation was successfull
 // var art = {
