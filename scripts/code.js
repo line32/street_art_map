@@ -4,15 +4,15 @@ var openModal = document.getElementById('open');
 var submitForm = document.getElementById('submit-form');
 //whenever the modal window opens, the form input values are reset
 function modalOpen(){
-	$('#open').hide();
-	$('#close').show();
-	$('#modal').removeClass('modal-hide');
-	$('#modal').addClass('modal-show');
-	$('input[name=address]').val('');
-	$('input[name=description]').val('');
-	$('input[name=artist]').val('anonymous');
-	$('input[name=photographer]').val('anonymous');
-	$('.form-input[name=type]').val("Select One");
+  $('#open').hide();
+  $('#close').show();
+  $('#modal').removeClass('modal-hide');
+  $('#modal').addClass('modal-show');
+  $('input[name=address]').val('');
+  $('input[name=description]').val('');
+  $('input[name=artist]').val('anonymous');
+  $('input[name=photographer]').val('anonymous');
+  $('.form-input[name=type]').val('Select One');
 }
 openModal.addEventListener('click', modalOpen);
 
@@ -34,19 +34,19 @@ function validAddress() {
     $('#address').html('Please enter valid address (no special characters)');
   }
 	else{
-		$('#address').html('')
-		console.log('good address');
-		removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    $('#address').html('');
+    console.log('good address');
+    removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
 		//the input value of address is free of any special characters
-		$('input[name=address]').val(removeSpecialCharacters);
-		valid++;
-	}
- }
- function validDescription(){
-  if ($('input[name=description]').val() == "") {
- 	console.log('description');
- 	$('#description').html('Please enter description');
- }
+    $('input[name=address]').val(removeSpecialCharacters);
+    valid++;
+  }
+}
+function validDescription(){
+  if ($('input[name=description]').val() == '') {
+    console.log('description');
+    $('#description').html('Please enter description');
+  }
  else{
     $('#description').html('');
     console.log('good description');
@@ -82,23 +82,23 @@ function validType() {
     $('#select-one').html('Please select a type');
   }
  else{
-	 $('#select-one').html('');
-	 console.log('good type');
-	 valid++;
- }
- }
+    $('#select-one').html('');
+    console.log('good type');
+    valid++;
+  }
+}
 //form validation is called
 function validatedForm(){
-		validAddress();
-		validDescription();
-		validArtist();
-		validPhotographer();
-		validType();
-		console.log(valid);
-		if(valid == 5){
-			hideModal();
-		}
-		valid = 0;
+  validAddress();
+  validDescription();
+  validArtist();
+  validPhotographer();
+  validType();
+  console.log(valid);
+  if(valid == 5){
+    hideModal();
+  }
+  valid = 0;
 }
 
 var submitForm = document.getElementById('submit-form');
@@ -159,7 +159,7 @@ submitForm.addEventListener('click', function() {
 //   var photo = $('input[name=photographer]').val();
 //   var type = $('input[name=type]').val();
 
-submitForm.addEventListener("click", validatedForm);
+submitForm.addEventListener('click', validatedForm);
 // function Art(address, lat, long, description, artist, photographer, type, image){
 // 	this.address = address;
 // 	this.lat = lat;
@@ -170,13 +170,14 @@ submitForm.addEventListener("click", validatedForm);
 // 	this.type = type;
 // 	this.image = image;
 // }
- function createNewObject(){
-	var add = $('input[name=address]').val();
+function createNewObject() {
+  var add = $('input[name=address]').val();
 	//do geocoding here
-	var descrip = $('input[name=description]').val();
-	var artist = $('input[name=artist]').val();
-	var photo = $('input[name=photographer]').val();
-	var type = $('input[name=type]').val();}
+  var descrip = $('input[name=description]').val();
+  var artist = $('input[name=artist]').val();
+  var photo = $('input[name=photographer]').val();
+  var type = $('input[name=type]').val();
+}
 
 //
 // 	//S3 here
