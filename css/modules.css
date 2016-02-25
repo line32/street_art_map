@@ -82,3 +82,6 @@ form > span{
 form > h5{
 	display: inline-block;;
 }
+#textAreaFileContents {
+	display: none;
+}
