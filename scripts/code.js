@@ -100,7 +100,7 @@ function validatedForm(){
 		}
 		valid = 0;
 }
-<<<<<<< HEAD
+
 var submitForm = document.getElementById('submit-form');
 function validatedForm() {
   validAddress();
@@ -158,7 +158,7 @@ submitForm.addEventListener('click', function() {
 //   var artist = $('input[name=artist]').val();
 //   var photo = $('input[name=photographer]').val();
 //   var type = $('input[name=type]').val();
-=======
+
 submitForm.addEventListener("click", validatedForm);
 // function Art(address, lat, long, description, artist, photographer, type, image){
 // 	this.address = address;
@@ -177,7 +177,7 @@ submitForm.addEventListener("click", validatedForm);
 	var artist = $('input[name=artist]').val();
 	var photo = $('input[name=photographer]').val();
 	var type = $('input[name=type]').val();}
->>>>>>> modal
+
 //
 // 	//S3 here
 //   var art = new Art(add, descrip, artist, photo, type);
