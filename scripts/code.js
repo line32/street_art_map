@@ -111,13 +111,13 @@ submitForm.addEventListener("click", validatedForm);
 // 	this.type = type;
 // 	this.image = image;
 // }
-//  function createNewObject(){
-// 	var add = $('input[name=address]').val();
-// 	//do geocoding here
-// 	var descrip = $('input[name=description]').val();
-// 	var artist = $('input[name=artist]').val();
-// 	var photo = $('input[name=photographer]').val();
-// 	var type = $('input[name=type]').val();
+ function createNewObject(){
+	var add = $('input[name=address]').val();
+	//do geocoding here
+	var descrip = $('input[name=description]').val();
+	var artist = $('input[name=artist]').val();
+	var photo = $('input[name=photographer]').val();
+	var type = $('input[name=type]').val();}
 //
 // 	//S3 here
 // 	var art = new Art(add, [lat, long] descrip, artist, photo, type, [S3]);
