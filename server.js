@@ -44,7 +44,7 @@ app.post('/art', function(req, res) {
   res.json({msg: 'it worked'});
 });
 
-models.sequelize.sync({force: true}).then(function(x) {
+models.sequelize.sync().then(function(x) {
   models.Art.create({
     address: '1721 Martin Luther King Jr Way S, Seattle, WA',
     lat: 47.587682,
