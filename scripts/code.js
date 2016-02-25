@@ -200,10 +200,10 @@ function createNewObject() {
 //
 //
 //
-$.post('/art', {address: '1721 Martin Luther King Jr Way S, Seattle, WA',lat: 47.587682,long: 122.298429,description: 'shitbarf tag on bus stop2',artist: 'shitbarf the ultimate',photographer: 'Anon2',type: 'tag',image: 'http://i.stack.imgur.com/ijSS5.png'}, function(data) {
-  console.log('data from post');
-  console.log(data);
-}, 'json');
+// $.post('/art', {address: '1721 Martin Luther King Jr Way S, Seattle, WA',lat: 47.587682,long: 122.298429,description: 'shitbarf tag on bus stop2',artist: 'shitbarf the ultimate',photographer: 'Anon2',type: 'tag',image: 'http://i.stack.imgur.com/ijSS5.png'}, function(data) {
+//   console.log('data from post');
+//   console.log(data);
+// }, 'json');
 //
 //
 //
