@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.STRING,
     artist: DataTypes.STRING,
     photographer: DataTypes.STRING,
-    type: DataTypes.TEXT(LONG),
+    type: DataTypes.TEXT,
     image:  DataTypes.STRING
   });
   return Art;
