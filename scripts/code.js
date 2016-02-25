@@ -1,5 +1,8 @@
+//create the listeners for opening and closing the modal
 var closeListener = document.getElementById('close');
 var openModal = document.getElementById('open');
+var submitForm = document.getElementById('submit-form');
+//whenever the modal window opens, the form input values are reset
 function modalOpen(){
 	$('#open').hide();
 	$('#close').show();
@@ -21,6 +24,7 @@ function hideModal(){
 }
 closeListener.addEventListener('click', hideModal);
 
+//functions that will validate each form inside of the form
 var valid = 0;
 var removeSpecialCharacters = '';
 function validAddress() {
@@ -33,6 +37,7 @@ function validAddress() {
 		$('#address').html('')
 		console.log('good address');
 		removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+		//the input value of address is free of any special characters
 		$('input[name=address]').val(removeSpecialCharacters);
 		valid++;
 	}
@@ -82,7 +87,7 @@ function validType() {
 	 valid++;
  }
  }
- var submitForm = document.getElementById('submit-form');
+//form validation is called
 function validatedForm(){
 		validAddress();
 		validDescription();
@@ -95,6 +100,7 @@ function validatedForm(){
 		}
 		valid = 0;
 }
+<<<<<<< HEAD
 var submitForm = document.getElementById('submit-form');
 function validatedForm() {
   validAddress();
@@ -152,6 +158,26 @@ submitForm.addEventListener('click', function() {
 //   var artist = $('input[name=artist]').val();
 //   var photo = $('input[name=photographer]').val();
 //   var type = $('input[name=type]').val();
+=======
+submitForm.addEventListener("click", validatedForm);
+// function Art(address, lat, long, description, artist, photographer, type, image){
+// 	this.address = address;
+// 	this.lat = lat;
+// 	this.long = long;
+// 	this.description = description;
+// 	this.artist = artist;
+// 	this.photographer = photographer;
+// 	this.type = type;
+// 	this.image = image;
+// }
+ function createNewObject(){
+	var add = $('input[name=address]').val();
+	//do geocoding here
+	var descrip = $('input[name=description]').val();
+	var artist = $('input[name=artist]').val();
+	var photo = $('input[name=photographer]').val();
+	var type = $('input[name=type]').val();}
+>>>>>>> modal
 //
 // 	//S3 here
 //   var art = new Art(add, descrip, artist, photo, type);
