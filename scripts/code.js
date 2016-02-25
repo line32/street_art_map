@@ -104,6 +104,10 @@ submitForm.addEventListener('click', function() {
   $('form').serializeArray().map(function(x){data[x.name] = x.value;});
   console.log(data);
 
+
+  $.post('/art', data, 'json');
+
+
   validatedForm();
   console.log('the form is validated by fred function');
 
@@ -150,10 +154,10 @@ submitForm.addEventListener('click', function() {
 //
 //
 //
-// $.post('/art', {address: '1721 Martin Luther King Jr Way S, Seattle, WA',lat: 47.587682,long: 122.298429,description: 'shitbarf tag on bus stop2',artist: 'shitbarf the ultimate',photographer: 'Anon2',type: 'tag',image: 'http://i.stack.imgur.com/ijSS5.png'}, function(data) {
-//   console.log('data from post');
-//   console.log(data);
-// }, 'json');
+$.post('/art', {address: '1721 Martin Luther King Jr Way S, Seattle, WA',lat: 47.587682,long: 122.298429,description: 'shitbarf tag on bus stop2',artist: 'shitbarf the ultimate',photographer: 'Anon2',type: 'tag',image: 'http://i.stack.imgur.com/ijSS5.png'}, function(data) {
+  console.log('data from post');
+  console.log(data);
+}, 'json');
 //
 //
 //
