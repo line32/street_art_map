@@ -8,8 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.STRING,
     artist: DataTypes.STRING,
     photographer: DataTypes.STRING,
-    type: DataTypes.TEXT,
-    image:  DataTypes.STRING
+    type: DataTypes.STRING,
+    image:  DataTypes.TEXT
   });
   return Art;
 };
