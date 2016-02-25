@@ -14,7 +14,7 @@
 <body>
 	<main>
         <img src="images/logo.png" class="logo" alt="Seattle Stree Art Map" />
-        <nav><a onclick="press()">Add street art to map <img src="images/plus.png" /></a></nav>
+        <nav><a>Add street art to map <img src="images/plus.png" id="open"/></a><img src="images/close_cf.png" id="close"/></nav>
         <section id="map"></section>
         <!-- <section id="map_modal">
         	<h1>{{Address}}</h1>
@@ -26,18 +26,37 @@
             <figure><img src="http://i.stack.imgur.com/ijSS5.png" height="18" /></figure>
         </section> -->
 				<div id="modal" class="modal-hide">
-					<div class="modal-content">
-						<span class="close"><a onclick="hideModal();"><img src="http://adventureahead.kindercare.com/images/shut.png" id="close"/></a></span>
-						<h2>Upload A Mural</h2>
-					<form class='form'>
-					<input class="test-input" type="text" name="user" placeholder="User Name"> <span id='user'></span> <br>
-					<input class="test-input" type="text" name="address" placeholder="Address" ><span id='address'></span><br>
-					<input class="test-input" type="text" name="description" placeholder="Description"><span id='description'></span><br>
-					<input class="test-input" type="text" name="mural" placeholder="Mural Name"><span id='mural'></span><br>
-					<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
-					<button class="submit-form" onclick="validatedForm();" type="button" name="button">Submit</button>
-				</form>
+					<div class="black">
+
 					</div>
+					<div class="modal-content">
+
+						<h2>Upload A Mural</h2>
+
+						<h2 class="form-header">Upload A Mural</h2>
+
+					<form class='form'>
+						<h5>Address:</h5><span id='address'></span>
+					<input class="form-input" type="text" name="address" placeholder="Address" ><br>
+					<h5>Description:</h5><span id='description'></span>
+					<input class="form-input" type="text" name="description" placeholder="Description"><br>
+					<h5>Artist:</h5><span id='artist'></span>
+					<input class="form-input" type="text" name="artist" value="anonymous"><br>
+					<h5>Photographer:</h5><span id='mural'></span>
+					<input class="form-input" type="text" name="photographer" value="anonymous"><br>
+					<h5>Select Street Art Type:</h5><span id='select-one'></span><select class="form-input" name="type">
+						<option value="Select One">Select One</option>
+						<option value="Tag">Tag</option>
+						<option value="Mural">Mural</option>
+						<option value="Installation">Installation</option>
+						<option value="Stickers">Stickers</option>
+						<option value="Stencil">Stencil</option>
+						<option value="Yarn Bomb">Yarn Bomb</option>
+					</select><br>
+					<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+					<button id="submit-form" type="button" name="button"><img src="images/submit_btn.png" alt="" /></button>
+				</form>
+				</div>
 				</div>
     </main>
 
@@ -81,7 +100,7 @@
 
 		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPzcvwMD8IHfXKVX9c0XmXx08x1wDv4to&callback=initMap">
-		</script>
-		<script src="code.js" charset="utf-8"></script>
+		</script>  
+		<script src="scripts/code.js" charset="utf-8"></script>
 </body>
 </html>
