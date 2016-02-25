@@ -124,6 +124,7 @@ function validatedForm() {
 //submitForm.addEventListener('click', validatedForm); //change this, if it validates, geocode and send to S3
 submitForm.addEventListener('click', function() {
 
+
   // grab the user inputs and add them to the data object
   var data = {};
   $('form').serializeArray().map(function(x){data[x.name] = x.value;});
@@ -134,7 +135,7 @@ submitForm.addEventListener('click', function() {
 
 
   validatedForm();
-  console.log('the form is validated by fred function');
+
 
 
 

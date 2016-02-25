@@ -53,13 +53,41 @@
 						<option value="Stencil">Stencil</option>
 						<option value="Yarn Bomb">Yarn Bomb</option>
 					</select><br>
-					<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+					<input id="inputFileToLoad" type="file" name="file" onchange="loadImageFileAsURL();">
+					<textarea id="textAreaFileContents" style="width:640;height:240" name="encodedimg"></textarea>
 					<button id="submit-form" type="button" name="button"><img src="images/submit_btn.png" alt="" /></button>
 				</form>
+
+
 				</div>
 				</div>
     </main>
+		<script type="text/javascript">
 
+		function loadImageFileAsURL()
+		{
+		    var filesSelected = document.getElementById("inputFileToLoad").files;
+		    if (filesSelected.length > 0)
+		    {
+		        var fileToLoad = filesSelected[0];
+
+		        var fileReader = new FileReader();
+
+		        fileReader.onload = function(fileLoadedEvent)
+		        {
+		            var textAreaFileContents = document.getElementById
+		            (
+		                "textAreaFileContents"
+		            );
+
+		            textAreaFileContents.innerHTML = fileLoadedEvent.target.result;
+		        };
+
+		        fileReader.readAsDataURL(fileToLoad);
+		    }
+		}
+
+		</script>
 		<script type="text/javascript">
 		// var mapData = JSON.parse(data)
 		console.log(data)
@@ -100,7 +128,7 @@
 
 		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPzcvwMD8IHfXKVX9c0XmXx08x1wDv4to&callback=initMap">
-		</script>  
+		</script>
 		<script src="scripts/code.js" charset="utf-8"></script>
 </body>
 </html>
