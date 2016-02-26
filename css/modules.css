@@ -6,7 +6,15 @@
 	width: 100%;
 	pointer-events:none;
 }
-.modal-hide{
+.can-black{
+	background-color: black;
+	opacity: .6;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	pointer-events: auto;
+}
+.modal-hide {
 	display: none;
 	top: 0px;
 	left: 0px;
@@ -14,8 +22,7 @@
 	bottom: 0px;
 
 }
-.modal-show{
-
+#myModal{
 	display: block;
 	position: fixed;
 	top: 0px;
@@ -28,6 +35,31 @@
 	margin-left: 20%;
 	overflow-x: hidden;
 	pointer-events: none;
+}
+.modal-show{
+	display: block;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: inherit;
+	height: 100%;
+	padding: 00px 0px 100px 0px;
+	margin-left: 20%;
+	overflow-x: hidden;
+	pointer-events: none;
+}
+
+#map_modal{
+	position: absolute;
+	margin: auto;
+	width: 100%;
+	height: auto;
+	margin-top: 6em;
+	padding: inherit;
+	background: white;
+	opacity: .8;
 }
 
 .modal-content{
