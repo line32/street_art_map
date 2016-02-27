@@ -32,7 +32,6 @@
 					</div>
 					<div class="modal-content">
 
-						<h2 class="form-header">Upload A Mural</h2>
 
 					<form class='form'>
 						<h5>Address:</h5><span id='address'></span>
@@ -182,11 +181,11 @@
 						html += "</div>";
 						html += "<section id='map_modal'>";
 						html += "<div id='block'>";
-	        	html += "<h1>" + this.information.lat + "</h1>";
+	        	html += "<h1>" + this.information.address + "</h1>";
 	          html += "<img src='http://i.imgur.com/8JEKSqo.jpg' />";
 	          html += "<p>" + "Description: " + this.information.description + "</p>";
 	          html +="<p>" + "Artist: " + this.information.artist +  "</p>";
-	          html += "<p>" + "Photographer: " + this.information.photogapher +  "</p>";
+	          html += "<p>" + "Photographer: " + this.information.photographer +  "</p>";
 	          html += "<p> Type: " + this.information.type + "</p>";
 						html += "<a href=\"#\" class=\"closeme\">Close</a>";
 						html += "</div>";
