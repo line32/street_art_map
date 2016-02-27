@@ -14,7 +14,7 @@
 <body>
 	<main>
         <img src="images/logo.png" class="logo" alt="Seattle Stree Art Map" />
-        <nav><a>Add street art to map <img src="images/plus.png" id="open"/></a><img src="images/close_cf.png" id="close"/></nav>
+        <nav><a>Add street art to map <img src="images/plus.png" id="openForm"/></a><img src="images/close_cf.png" id="close"/></nav>
         <section id="map"></section>
         <!-- <section id="map_modal">
         	<h1>{{Address}}</h1>
@@ -31,15 +31,13 @@
 					</div>
 					<div class="modal-content">
 
-						<h2>Upload A Mural</h2>
-
 						<h2 class="form-header">Upload A Mural</h2>
 
 					<form class='form'>
 						<h5>Address:</h5><span id='address'></span>
-					<input class="form-input" type="text" name="address" placeholder="Address" ><br>
+					<input class="form-input" type="text" name="address" placeholder="Address" id='iaddress'><br>
 					<h5>Description:</h5><span id='description'></span>
-					<input class="form-input" type="text" name="description" placeholder="Description"><br>
+					<input class="form-input" type="text" name="description" placeholder="Description" id="description-one"><br>
 					<h5>Artist:</h5><span id='artist'></span>
 					<input class="form-input" type="text" name="artist" value="anonymous"><br>
 					<h5>Photographer:</h5><span id='mural'></span>
@@ -60,6 +58,7 @@
 
 				</div>
 				</div>
+				<div id="myModal"></div>
     </main>
 		<img id='stuff'>
 		<script type="text/javascript">
@@ -93,6 +92,7 @@
 
 		var map;
 		function initMap() {
+			geocoder = new google.maps.Geocoder();
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: {lat: 47.6225, lng: -122.3520},
 				zoom: 13
@@ -110,21 +110,27 @@
 					icon: image
 				});
 				google.maps.event.addListener(newMarker, 'click', function(){
-				var html = "<section id='map_modal'>"
+					document.getElementById('openForm').id = 'openImgModal';
+				 	document.getElementById('close').id = 'closeimgModal';
+					// var 
+				var html = "<div class='can-black'>";
 				//lat should be address when using DB
+						html += "</div>";
+						html += "<section id='map_modal'>";
+						html += "<div id='block'>";
 	        	html += "<h1>" + this.information.lat + "</h1>";
 	          html += "<img src='http://i.imgur.com/8JEKSqo.jpg' />";
 	          html += "<p>" + "Description: " + this.information.description + "</p>";
 	          html +="<p>" + "Artist: " + this.information.artist +  "</p>";
 	          html += "<p>" + "Photographer: " + this.information.photogapher +  "</p>";
 	          html += "<p> Type: " + this.information.type + "</p>";
-	  				html += "</section>"
+						html += "</div>";
+	  				html += "</section>";
 						$("#myModal").append(html);
 				})
 			}
 		}
 		</script>
-		<div id="myModal"></div>
 
 		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPzcvwMD8IHfXKVX9c0XmXx08x1wDv4to&callback=initMap">

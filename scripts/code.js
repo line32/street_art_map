@@ -1,28 +1,55 @@
 //create the listeners for opening and closing the modal
 var closeListener = document.getElementById('close');
-var openModal = document.getElementById('open');
+var openModal = document.getElementById('openForm');
 var submitForm = document.getElementById('submit-form');
 //whenever the modal window opens, the form input values are reset
 function modalOpen(){
-  $('#open').hide();
-  $('#close').show();
-  $('#modal').removeClass('modal-hide');
-  $('#modal').addClass('modal-show');
-  $('input[name=address]').val('');
-  $('input[name=description]').val('');
-  $('input[name=artist]').val('anonymous');
-  $('input[name=photographer]').val('anonymous');
-  $('.form-input[name=type]').val('Select One');
+
+	$('#openForm').hide();
+	$('#close').show();
+	$('#modal').removeClass('modal-hide');
+	$('#modal').addClass('modal-show');
+	$('input[name=address]').val('');
+	$('input[name=description]').val('');
+	$('input[name=artist]').val('anonymous');
+	$('input[name=photographer]').val('anonymous');
+	$('.form-input[name=type]').val("Select One");
+
 }
 openModal.addEventListener('click', modalOpen);
 
 function hideModal(){
-  $('#open').show();
+  $('#openForm').show();
   $('#close').hide();
   $('#modal').addClass('modal-hide');
   $('#modal').removeClass('modal-show');
 }
 closeListener.addEventListener('click', hideModal);
+
+var iaddress = document.getElementById("iaddress");
+iaddress.addEventListener("blur", function( event ) {
+ codeAddress();
+}, true);
+
+var descriptionClear = document.getElementById("description-one");
+descriptionClear.addEventListener("blur", function( event ) {
+	console.log('descript clear')
+	validDescription();
+}, true);
+
+ function codeAddress() {
+   var address = document.getElementById("iaddress").value;
+   geocoder.geocode( { 'address': address}, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+        console.log(results[0].geometry.location.lat());
+        console.log(results[0].geometry.location.lng());
+
+				$('#address').html('');
+     } else {
+			 $('#address').html( status + ' is not a valid address. Please enter a valid address');
+     }
+   });
+ }
 
 //functions that will validate each form inside of the form
 var valid = 0;
@@ -33,10 +60,12 @@ function validAddress() {
     console.log('address');
     $('#address').html('Please enter valid address (no special characters)');
   }
-	else{
-    $('#address').html('');
-    console.log('good address');
-    removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+
+	else {
+		// $('#address').html('')
+		console.log('good address');
+		removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+
 		//the input value of address is free of any special characters
     $('input[name=address]').val(removeSpecialCharacters);
     valid++;
@@ -48,7 +77,7 @@ function validDescription(){
     $('#description').html('Please enter description');
   }
  else{
-    $('#description').html('');
+	 $('#description').html('');
     console.log('good description');
     valid++;
   }
@@ -108,15 +137,15 @@ function validatedForm() {
   validArtist();
   validPhotographer();
   validType();
-
+	createNewObject();
   console.log(valid);
   if(valid == 5) {
     hideModal();
-    $('input[name=address]').val('');
-    $('input[name=description]').val('');
-    $('input[name=artist]').val('anonymous');
-    $('input[name=photographer]').val('anonymous');
-    $('.form-input[name=type]').val('Select One');
+    // $('input[name=address]').val('');
+    // $('input[name=description]').val('');
+    // $('input[name=artist]').val('anonymous');
+    // $('input[name=photographer]').val('anonymous');
+    // $('.form-input[name=type]').val('Select One');
 
   }
   valid = 0;
