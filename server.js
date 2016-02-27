@@ -53,7 +53,7 @@ models.sequelize.sync({force: true}).then(function(x) {
     artist: 'shitbarf',
     photographer: 'Anon',
     type: 'tag',
-    image: 'http://i.stack.imgur.com/ijSS5.png'
+    image: 'http://i.imgur.com/8JEKSqo.jpg'
   });
   app.listen(PORT, function() {
     console.log('server started');
