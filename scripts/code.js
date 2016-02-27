@@ -140,6 +140,7 @@ function validatedForm() {
   validPhotographer();
   validType();
 	createNewObject();
+	initMap();
   console.log(valid);
   if(valid == 5) {
     hideModal();

@@ -193,11 +193,12 @@
 	  				html += "</section>";
 						$("#myModal").append(html);
 						$('#myModal').show();
-
 						//close the block
 						$('a.closeme').on('click', function() {
-							$('#myModal').hide();
-						});
+                            var test = document.getElementById('myModal');
+                            var tester = document.getElementById('can-black');
+                            test.innerHTML = '';
+                        });
 				})
 			};
 		}
