@@ -121,7 +121,7 @@ function validatedForm() {
   }
   valid = 0;
 }
-//submitForm.addEventListener('click', validatedForm); //change this, if it validates, geocode and send to S3
+
 submitForm.addEventListener('click', function() {
 
 
