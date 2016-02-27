@@ -26,30 +26,11 @@ function hideModal(){
 }
 closeListener.addEventListener('click', hideModal);
 
-var iaddress = document.getElementById("iaddress");
-iaddress.addEventListener("blur", function( event ) {
- codeAddress();
-}, true);
-
 var descriptionClear = document.getElementById("description-one");
 descriptionClear.addEventListener("blur", function( event ) {
 	console.log('descript clear')
 	validDescription();
 }, true);
-
- function codeAddress() {
-   var address = document.getElementById("iaddress").value;
-   geocoder.geocode( { 'address': address}, function(results, status) {
-     if (status == google.maps.GeocoderStatus.OK) {
-        console.log(results[0].geometry.location.lat());
-        console.log(results[0].geometry.location.lng());
-
-				$('#address').html('');
-     } else {
-			 $('#address').html( status + ' is not a valid address. Please enter a valid address');
-     }
-   });
- }
 
 //functions that will validate each form inside of the form
 var valid = 0;
@@ -130,6 +111,27 @@ function validatedForm(){
   valid = 0;
 }
 
+
+var iaddress = document.getElementById("iaddress");
+iaddress.addEventListener("blur", function( event ) {
+ codeAddress();
+}, true);
+
+ function codeAddress() {
+   var address = document.getElementById("iaddress").value;
+   geocoder.geocode( { 'address': address}, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+        $('input[name=lat]').val(results[0].geometry.location.lat());
+				console.log(results[0].geometry.location.lat());
+        $('input[name=long]').val(results[0].geometry.location.lng());
+				console.log(results[0].geometry.location.lng());
+				$('#address').html('');
+     } else {
+			 $('#address').html( status + ' is not a valid address. Please enter a valid address');
+     }
+   });
+ }
+
 var submitForm = document.getElementById('submit-form');
 function validatedForm() {
   validAddress();
@@ -141,11 +143,6 @@ function validatedForm() {
   console.log(valid);
   if(valid == 5) {
     hideModal();
-    // $('input[name=address]').val('');
-    // $('input[name=description]').val('');
-    // $('input[name=artist]').val('anonymous');
-    // $('input[name=photographer]').val('anonymous');
-    // $('.form-input[name=type]').val('Select One');
 
   }
   valid = 0;
@@ -157,10 +154,10 @@ submitForm.addEventListener('click', function() {
   // grab the user inputs and add them to the data object
   var data = {};
   $('form').serializeArray().map(function(x){data[x.name] = x.value;});
-  //console.log(data);
+  console.log(data);
 
 
-  $.post('/art', data, 'json');
+  $.post('https://seattleartmap.herokuapp.com/art', data, 'json');
 
 
   validatedForm();
@@ -207,9 +204,11 @@ submitForm.addEventListener('click', validatedForm);
 function createNewObject() {
   var add = $('input[name=address]').val();
 	//do geocoding here
+	var lat = $('input[name=lat]').val();
+	var long = $('input[name=long]').val();
   var descrip = $('input[name=description]').val();
   var artist = $('input[name=artist]').val();
-  var photo = $('input[name=photographer]').val();
+  var photogapher = $('input[name=photographer]').val();
   var type = $('input[name=type]').val();
 }
 
