@@ -100,7 +100,7 @@
 			geocoder = new google.maps.Geocoder();
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: {lat: 47.6225, lng: -122.3520},
-				zoom: 13
+				zoom: 12
 			});
 			var data;
 			$.getJSON('https://seattleartmap.herokuapp.com/art', function( resdata ) {
@@ -188,9 +188,16 @@
 	          html +="<p>" + "Artist: " + this.information.artist +  "</p>";
 	          html += "<p>" + "Photographer: " + this.information.photogapher +  "</p>";
 	          html += "<p> Type: " + this.information.type + "</p>";
+						html += "<a href=\"#\" class=\"closeme\">Close</a>";
 						html += "</div>";
 	  				html += "</section>";
 						$("#myModal").append(html);
+						$('#myModal').show();
+
+						//close the block
+						$('a.closeme').on('click', function() {
+							$('#myModal').hide();
+						});
 				})
 			};
 		}
