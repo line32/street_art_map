@@ -117,6 +117,7 @@ function validatedForm() {
     hideModal();
     createNewObject();
     initMap();
+    location.reload();
   }
   valid = 0;
 }
