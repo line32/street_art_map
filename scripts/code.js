@@ -36,12 +36,10 @@ var removeSpecialCharacters = '';
 function validAddress() {
   var addressEntered = $('input[name=address]').val();
   if (addressEntered == '') {
-    console.log('address');
     $('#address').html('Please enter valid address (no special characters)');
   }
 
 	else {
-    console.log('good address');
     removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
 
 		//the input value of address is free of any special characters
@@ -51,62 +49,42 @@ function validAddress() {
 }
 function validDescription(){
   if ($('input[name=description]').val() == '') {
-    console.log('description');
     $('#description').html('Please enter description');
   }
  else{
     $('#description').html('');
-    console.log('good description');
     valid++;
   }
 }
 function validArtist() {
   if($('input[name=artist]').val() == '') {
-    console.log('artist');
     $('#artist').html('Please enter an artist name');
   }
  	else {
     $('#artist').html('');
-    console.log('good artist');
     valid++;
   }
 }
 function validPhotographer() {
   if ($('input[name=photographer]').val() == '') {
-    console.log('mural');
     var photog;
     $('#mural').html('Please enter a photographer name');
   }
 	else{
     $('#mural').html('');
-    console.log('good photographer');
     valid++;
   }
 }
 function validType() {
   if ($('.form-input[name=type]').val() == 'Select One') {
-    console.log('select one');
     $('#select-one').html('Please select a type');
   }
  else{
     $('#select-one').html('');
-    console.log('good type');
     valid++;
   }
 }
-//form validation is called
-function validatedForm(){
-  validAddress();
-  validDescription();
-  validArtist();
-  validPhotographer();
-  validType();
-  console.log(valid);
-  if(valid == 5){
-    hideModal();
-  }
-  valid = 0;
-}
+
 
 
 var iaddress = document.getElementById('iaddress');
