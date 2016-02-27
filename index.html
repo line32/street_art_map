@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/layout.css"  />
 	<link rel="stylesheet" href="css/modules.css"  />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="testj.js" charset="utf-8"></script>
 	<script src = "scripts/streetArt.js"></script>
 </head>
 
@@ -90,14 +91,7 @@
 
 		</script>
 		<script type="text/javascript">
-		var data;
-		$.getJSON('https://seattleartmap.herokuapp.com/art', function( resdata ) {
-			data = resdata;
-			console.log(resdata);
-			console.log('restdata');
-			console.log(data);
-			console.log('data real');
-		});
+
 		// var mapData = JSON.parse(data)
 
 		var map;
@@ -109,9 +103,14 @@
 			});
 			var image = 'images/can_icon.png';
 			//data is info pulled in from db or file
+
 			for (var i = 0; i < data.length; i++) {
+				console.log('quote four');
+				console.log(data[i]);
 				var lat = parseFloat(data[i].lat);
-				var lng = parseFloat(data[i].lng);
+				var lng = parseFloat(data[i].long);
+				console.log(lat);
+				console.log(lng);
 				var point = new google.maps.LatLng(lat, lng);
 				var newMarker = new google.maps.Marker({
 					position: point,
@@ -128,7 +127,7 @@
 						html += "</div>";
 						html += "<section id='map_modal'>";
 						html += "<div id='block'>";
-	        	html += "<h1>" + this.information.lat + "</h1>";
+	        	html += "<h1>" + this.information.address + "</h1>";
 	          html += "<img src='http://i.imgur.com/8JEKSqo.jpg' />";
 	          html += "<p>" + "Description: " + this.information.description + "</p>";
 	          html +="<p>" + "Artist: " + this.information.artist +  "</p>";
@@ -140,9 +139,47 @@
 				})
 			}
 		}
+		// var data;
+		// $.getJSON('https://seattleartmap.herokuapp.com/art', function( resdata ) {
+		// 	data = resdata;
+		// 	console.log(resdata);
+		// 	console.log('restdata');
+		// 	console.log(data);
+		// 	console.log('data real');
+		// 	for (var i = 0; i < data.length; i++) {
+		// 		var lat = parseFloat(data[i].lat);
+		// 		var lng = parseFloat(data[i].lng);
+		// 		var point = new google.maps.LatLng(lat, lng);
+		// 		var newMarker = new google.maps.Marker({
+		// 			position: point,
+		// 			information: data[i],
+		// 			map: map,
+		// 			icon: image
+		// 		});
+		// 		google.maps.event.addListener(newMarker, 'click', function(){
+		// 			// document.getElementById('openForm').id = 'openImgModal';
+		// 			// 	document.getElementById('close').id = 'closeimgModal';
+		// 			// var
+		// 		var html = "<div class='can-black'>";
+		// 		//lat should be address when using DB
+		// 				html += "</div>";
+		// 				html += "<section id='map_modal'>";
+		// 				html += "<div id='block'>";
+	  //       	html += "<h1>" + this.information.lat + "</h1>";
+	  //         html += "<img src='http://i.imgur.com/8JEKSqo.jpg' />";
+	  //         html += "<p>" + "Description: " + this.information.description + "</p>";
+	  //         html +="<p>" + "Artist: " + this.information.artist +  "</p>";
+	  //         html += "<p>" + "Photographer: " + this.information.photogapher +  "</p>";
+	  //         html += "<p> Type: " + this.information.type + "</p>";
+		// 				html += "</div>";
+	  // 				html += "</section>";
+		// 				$("#myModal").append(html);
+		// 		})
+		// 	};
+		// });
 		</script>
 
-		<script  defer
+		<script  async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPzcvwMD8IHfXKVX9c0XmXx08x1wDv4to&callback=initMap">
 		</script>
 		<script src="scripts/code.js" charset="utf-8"></script>
