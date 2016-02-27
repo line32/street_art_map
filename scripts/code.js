@@ -168,10 +168,7 @@ submitForm.addEventListener('click', function() {
 
 
 });
-$.getJSON('https://seattleartmap.herokuapp.com/art', function( data ) {
-  console.log("data");
-	console.log(data);
-});
+
 // function Art(address, lat, long, description, artist, photographer, type, image) {
 //   this.address = address;
 //   this.lat = lat;

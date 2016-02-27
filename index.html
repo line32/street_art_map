@@ -90,6 +90,14 @@
 
 		</script>
 		<script type="text/javascript">
+		var data;
+		$.getJSON('https://seattleartmap.herokuapp.com/art', function( resdata ) {
+			data = resdata;
+			console.log(resdata);
+			console.log('restdata');
+			console.log(data);
+			console.log('data real');
+		});
 		// var mapData = JSON.parse(data)
 
 		var map;
@@ -101,7 +109,7 @@
 			});
 			var image = 'images/can_icon.png';
 			//data is info pulled in from db or file
-			for (var i = 0; i <data.length; i++) {
+			for (var i = 0; i < data.length; i++) {
 				var lat = parseFloat(data[i].lat);
 				var lng = parseFloat(data[i].lng);
 				var point = new google.maps.LatLng(lat, lng);
@@ -112,8 +120,8 @@
 					icon: image
 				});
 				google.maps.event.addListener(newMarker, 'click', function(){
-					document.getElementById('openForm').id = 'openImgModal';
-				 	document.getElementById('close').id = 'closeimgModal';
+					// document.getElementById('openForm').id = 'openImgModal';
+					// 	document.getElementById('close').id = 'closeimgModal';
 					// var
 				var html = "<div class='can-black'>";
 				//lat should be address when using DB
@@ -134,7 +142,7 @@
 		}
 		</script>
 
-		<script async defer
+		<script  defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPzcvwMD8IHfXKVX9c0XmXx08x1wDv4to&callback=initMap">
 		</script>
 		<script src="scripts/code.js" charset="utf-8"></script>
