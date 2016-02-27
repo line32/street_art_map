@@ -14,7 +14,7 @@
 <body>
 	<main>
         <img src="images/logo.png" class="logo" alt="Seattle Stree Art Map" />
-        <nav><a>Add street art to map <img src="images/plus.png" id="open"/></a><img src="images/close_cf.png" id="close"/></nav>
+        <nav><a>Add street art to map <img src="images/plus.png" id="openForm"/></a><img src="images/close_cf.png" id="close"/></nav>
         <section id="map"></section>
         <!-- <section id="map_modal">
         	<h1>{{Address}}</h1>
@@ -30,8 +30,6 @@
 
 					</div>
 					<div class="modal-content">
-
-						<h2>Upload A Mural</h2>
 
 						<h2 class="form-header">Upload A Mural</h2>
 
@@ -84,18 +82,22 @@
 					icon: image
 				});
 				google.maps.event.addListener(newMarker, 'click', function(){
+					document.getElementById('openForm').id = 'openImgModal';
+				 	document.getElementById('close').id = 'closeimgModal';
+					// var 
 				var html = "<div class='can-black'>";
 				//lat should be address when using DB
 						html += "</div>";
-						html += "<section id='map_modal'>"
+						html += "<section id='map_modal'>";
+						html += "<div id='block'>";
 	        	html += "<h1>" + this.information.lat + "</h1>";
 	          html += "<img src='http://i.imgur.com/8JEKSqo.jpg' />";
 	          html += "<p>" + "Description: " + this.information.description + "</p>";
 	          html +="<p>" + "Artist: " + this.information.artist +  "</p>";
 	          html += "<p>" + "Photographer: " + this.information.photogapher +  "</p>";
 	          html += "<p> Type: " + this.information.type + "</p>";
+						html += "</div>";
 	  				html += "</section>";
-						html += "</div>"
 						$("#myModal").append(html);
 				})
 			}

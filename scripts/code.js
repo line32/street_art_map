@@ -1,10 +1,10 @@
 //create the listeners for opening and closing the modal
 var closeListener = document.getElementById('close');
-var openModal = document.getElementById('open');
+var openModal = document.getElementById('openForm');
 var submitForm = document.getElementById('submit-form');
 //whenever the modal window opens, the form input values are reset
 function modalOpen(){
-	$('#open').hide();
+	$('#openForm').hide();
 	$('#close').show();
 	$('#modal').removeClass('modal-hide');
 	$('#modal').addClass('modal-show');
@@ -17,7 +17,7 @@ function modalOpen(){
 openModal.addEventListener('click', modalOpen);
 
 function hideModal(){
-  $('#open').show();
+  $('#openForm').show();
   $('#close').hide();
   $('#modal').addClass('modal-hide');
   $('#modal').removeClass('modal-show');
@@ -58,10 +58,10 @@ function validAddress() {
     console.log('address');
     $('#address').html('Please enter valid address (no special characters)');
   }
-	else{
-		$('#address').html('')
+	else {
+		// $('#address').html('')
 		console.log('good address');
-		//removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+		removeSpecialCharacters = addressEntered.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
 		//the input value of address is free of any special characters
 		$('input[name=address]').val(removeSpecialCharacters);
 		valid++;

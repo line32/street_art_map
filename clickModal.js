@@ -1,8 +1,8 @@
-function canModalOpen(){
-  	$('#open').hide();
-  	$('#close').show();
-  	$('#modal').removeClass('can-modal-hide');
-  	$('#modal').addClass('can-modal-show');
-};
-var openModal = document.getElementById('open');
-canModalOpen.addEventListener('click', canModalOpen);
+// function canModalOpen(){
+//   	$('#open').hide();
+//   	$('#close').show();
+//     document.getElementById('openForm').id = 'openImgModal', return false;
+//     document.getElementById('close').id = 'closeimgModal'
+// };
+// var openModal = document.getElementById('open');
+// canModalOpen.addEventListener('click', canModalOpen);
