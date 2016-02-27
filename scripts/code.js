@@ -128,7 +128,7 @@ submitForm.addEventListener('click', function() {
   // grab the user inputs and add them to the data object
   var data = {};
   $('form').serializeArray().map(function(x){data[x.name] = x.value;});
-  console.log(data);
+  //console.log(data);
 
 
   $.post('/art', data, 'json');
@@ -141,6 +141,10 @@ submitForm.addEventListener('click', function() {
 
 
 
+});
+$.getJSON('https://seattleartmap.herokuapp.com/art', function( data ) {
+  console.log("data");
+	console.log(data);
 });
 // function Art(address, lat, long, description, artist, photographer, type, image) {
 //   this.address = address;
@@ -208,6 +212,3 @@ function createNewObject() {
 //
 //
 //
-// $.getJSON('/art', function( data ) {
-// 	console.log(data);
-// });
